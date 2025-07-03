@@ -5,17 +5,16 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductApproval\Business\Filter;
+namespace Spryker\Zed\ProductApproval\Business\Extractor;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 
-interface QuoteItemsFilterInterface
+interface QuoteOriginalSalesOrderItemExtractorInterface
 {
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param list<string> $skusToSkip
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return list<string>
      */
-    public function filterCartItems(QuoteTransfer $quoteTransfer, array $skusToSkip = []): QuoteTransfer;
+    public function extractOriginalSalesOrderItemSkus(QuoteTransfer $quoteTransfer): array;
 }

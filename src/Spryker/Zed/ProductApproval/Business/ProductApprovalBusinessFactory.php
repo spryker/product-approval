@@ -22,6 +22,8 @@ use Spryker\Zed\ProductApproval\Business\Filter\ProductPageSearchCollectionFilte
 use Spryker\Zed\ProductApproval\Business\Filter\ProductPageSearchCollectionFilterInterface;
 use Spryker\Zed\ProductApproval\Business\Filter\QuoteItemsFilter;
 use Spryker\Zed\ProductApproval\Business\Filter\QuoteItemsFilterInterface;
+use Spryker\Zed\ProductApproval\Business\Provider\ProductReadiness\ApprovalStatusAbstractProductReadinessProvider;
+use Spryker\Zed\ProductApproval\Business\Provider\ProductReadiness\ProductAbstractReadinessProviderInterface;
 use Spryker\Zed\ProductApproval\Business\Reader\ApplicableApprovalStatusReader;
 use Spryker\Zed\ProductApproval\Business\Reader\ApplicableApprovalStatusReaderInterface;
 use Spryker\Zed\ProductApproval\Business\Reader\ProductReader;
@@ -138,6 +140,14 @@ class ProductApprovalBusinessFactory extends AbstractBusinessFactory
     public function createProductApprovalShoppingListValidator(): ProductApprovalShoppingListValidatorInterface
     {
         return new ProductApprovalShoppingListValidator($this->getProductFacade());
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductApproval\Business\Provider\ProductReadiness\ProductAbstractReadinessProviderInterface
+     */
+    public function createApprovalStatusAbstractProductReadinessProvider(): ProductAbstractReadinessProviderInterface
+    {
+        return new ApprovalStatusAbstractProductReadinessProvider();
     }
 
     /**

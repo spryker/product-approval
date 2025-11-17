@@ -80,4 +80,10 @@
         <property name="sku" type="string"/>
     </transfer>
 
+    <transfer name="ProductAbstractReadinessRequest" strict="true">
+    </transfer>
+
+    <transfer name="ProductReadiness" strict="true">
+    </transfer>
+
 </transfers>

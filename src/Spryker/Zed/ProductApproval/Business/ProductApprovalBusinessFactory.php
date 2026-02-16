@@ -151,7 +151,7 @@ class ProductApprovalBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductApproval\Dependency\Facade\ProductApprovalToProductFacadeInterface;
+     * @return \Spryker\Zed\ProductApproval\Dependency\Facade\ProductApprovalToProductFacadeInterface
      */
     public function getProductFacade(): ProductApprovalToProductFacadeInterface
     {

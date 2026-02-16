@@ -15,7 +15,6 @@ use Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductAbstractRead
 /**
  * @method \Spryker\Zed\ProductApproval\Business\ProductApprovalFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductApproval\Business\ProductApprovalBusinessFactory getBusinessFactory()
- * @method \Spryker\Zed\ProductApproval\Communication\ProductApprovalCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductApproval\ProductApprovalConfig getConfig()
  */
 class ApprovalStatusAbstractProductReadinessProviderPlugin extends AbstractPlugin implements ProductAbstractReadinessProviderPluginInterface

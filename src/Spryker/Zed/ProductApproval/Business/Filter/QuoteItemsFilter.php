@@ -35,10 +35,6 @@ class QuoteItemsFilter implements QuoteItemsFilterInterface
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\Business\Reader\ProductReaderInterface $productReader
-     * @param \Spryker\Zed\ProductApproval\Dependency\Facade\ProductApprovalToMessengerFacadeInterface $messengerFacade
-     */
     public function __construct(
         ProductReaderInterface $productReader,
         ProductApprovalToMessengerFacadeInterface $messengerFacade
@@ -79,11 +75,6 @@ class QuoteItemsFilter implements QuoteItemsFilterInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     protected function addFilterMessage(string $sku): void
     {
         $messageTransfer = new MessageTransfer();

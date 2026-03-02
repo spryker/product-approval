@@ -59,9 +59,6 @@ class ProductApprovalFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGetApplicableApprovalStatusesReturnsCorrectStatusesForWaitingForApproval(): void
     {
         // Act
@@ -80,9 +77,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetApplicableApprovalStatusesReturnsCorrectStatusesForApproved(): void
     {
         // Act
@@ -97,9 +91,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetApplicableApprovalStatusesReturnsCorrectStatusesForDenied(): void
     {
         // Act
@@ -117,9 +108,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetApplicableApprovalStatusesReturnsCorrectStatusesForDraft(): void
     {
         // Act
@@ -138,9 +126,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetApplicableApprovalStatusesReturnsEmptyArrayForNotExistingApprovalStatus(): void
     {
         // Act
@@ -190,9 +175,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductAbstractStorageCollectionDoesNotFilterOutApprovedProducts(): void
     {
         // Arrange
@@ -270,9 +252,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductConcreteStorageCollectionDoesNotFilterOutApprovedProducts(): void
     {
         // Arrange
@@ -350,9 +329,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductPageSearchCollectionDoesNotFilterOutApprovedProducts(): void
     {
         // Arrange
@@ -422,9 +398,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductConcreteCollectionDoesNotFilterOutApprovedProducts(): void
     {
         // Arrange
@@ -496,9 +469,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterCartItemsDoesNotFilterOutApprovedProducts(): void
     {
         // Arrange
@@ -534,9 +504,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertCount(2, $quoteTransfer->getItems());
     }
 
-    /**
-     * @return void
-     */
     public function testFilterCartItemsShouldNotFilterOutWhenItemIsNotFound(): void
     {
         // Arrange
@@ -572,9 +539,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertCount(2, $quoteTransfer->getItems());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateCartChangeReturnsSuccessResponseForApprovedProduct(): void
     {
         // Arrange
@@ -594,9 +558,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertTrue($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateCartChangeReturnsSuccessResponseForEmptyCartChange(): void
     {
         // Arrange
@@ -636,9 +597,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertCount(1, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateQuoteForCheckoutReturnsSuccessResponseForApprovedProduct(): void
     {
         // Arrange
@@ -689,9 +647,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertFalse($checkoutResponse);
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShoppingListItemReturnsSuccessResponseForApprovedProduct(): void
     {
         // Arrange
@@ -736,9 +691,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertCount(1, $shoppingListPreAddItemCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandProductAbstractDoesNotExpandWhenProductAbstractHasApprovalStatus(): void
     {
         // Arrange
@@ -752,9 +704,6 @@ class ProductApprovalFacadeTest extends Unit
         $this->assertSame(ProductApprovalConfig::STATUS_APPROVED, $productAbstractTransfer->getApprovalStatusOrFail());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandProductAbstractWithDefaultApprovalStatus(): void
     {
         // Act
@@ -767,9 +716,6 @@ class ProductApprovalFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductConcreteStorageCollectionFilterOutProductsWithWrongIdProductConcrete(): void
     {
         // Arrange

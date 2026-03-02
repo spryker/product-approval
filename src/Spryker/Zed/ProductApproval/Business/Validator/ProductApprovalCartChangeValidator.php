@@ -35,9 +35,6 @@ class ProductApprovalCartChangeValidator implements ProductApprovalCartChangeVal
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\Dependency\Facade\ProductApprovalToProductFacadeInterface $productFacade
-     */
     public function __construct(ProductApprovalToProductFacadeInterface $productFacade)
     {
         $this->productFacade = $productFacade;
@@ -79,11 +76,6 @@ class ProductApprovalCartChangeValidator implements ProductApprovalCartChangeVal
         return $cartPreCheckResponseTransfer;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createErrorMessage(string $sku): MessageTransfer
     {
         return (new MessageTransfer())

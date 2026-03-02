@@ -17,19 +17,11 @@ class ProductAbstractExpander implements ProductAbstractExpanderInterface
      */
     protected $productApprovalConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\ProductApprovalConfig $productApprovalConfig
-     */
     public function __construct(ProductApprovalConfig $productApprovalConfig)
     {
         $this->productApprovalConfig = $productApprovalConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     public function expandProductAbstract(ProductAbstractTransfer $productAbstractTransfer): ProductAbstractTransfer
     {
         if ($productAbstractTransfer->getApprovalStatus()) {

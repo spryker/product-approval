@@ -27,9 +27,6 @@ use Spryker\Zed\ProductApproval\Communication\Plugin\ProductManagement\ApprovalS
  */
 class ApprovalStatusAbstractProductReadinessProviderPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testProvideAddsApprovalStatusReadiness(): void
     {
         // Arrange

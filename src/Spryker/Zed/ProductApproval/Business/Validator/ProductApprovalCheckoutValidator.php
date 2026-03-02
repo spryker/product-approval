@@ -31,9 +31,6 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
      */
     protected $productReader;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\Business\Reader\ProductReaderInterface $productReader
-     */
     public function __construct(ProductReaderInterface $productReader)
     {
         $this->productReader = $productReader;

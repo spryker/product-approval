@@ -16,9 +16,6 @@ class ApplicableApprovalStatusReader implements ApplicableApprovalStatusReaderIn
      */
     protected $productApprovalConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\ProductApprovalConfig $productApprovalConfig
-     */
     public function __construct(ProductApprovalConfig $productApprovalConfig)
     {
         $this->productApprovalConfig = $productApprovalConfig;

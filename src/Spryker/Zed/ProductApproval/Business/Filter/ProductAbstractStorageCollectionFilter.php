@@ -18,9 +18,6 @@ class ProductAbstractStorageCollectionFilter implements ProductAbstractStorageCo
      */
     protected $productReader;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\Business\Reader\ProductReaderInterface $productReader
-     */
     public function __construct(ProductReaderInterface $productReader)
     {
         $this->productReader = $productReader;

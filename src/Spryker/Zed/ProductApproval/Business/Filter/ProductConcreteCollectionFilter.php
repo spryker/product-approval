@@ -18,9 +18,6 @@ class ProductConcreteCollectionFilter implements ProductConcreteCollectionFilter
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductApproval\Dependency\Facade\ProductApprovalToProductFacadeInterface $productFacade
-     */
     public function __construct(ProductApprovalToProductFacadeInterface $productFacade)
     {
         $this->productFacade = $productFacade;

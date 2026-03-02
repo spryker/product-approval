@@ -36,9 +36,6 @@ class OrderAmendmentProductApprovalCheckoutPreConditionPluginTest extends Unit
      */
     protected ProductApprovalCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsSuccessResponseForApprovedProduct(): void
     {
         // Arrange
@@ -60,9 +57,6 @@ class OrderAmendmentProductApprovalCheckoutPreConditionPluginTest extends Unit
         $this->assertTrue($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsFailResponseWithErrorsForNotApprovedProduct(): void
     {
         // Arrange
@@ -86,9 +80,6 @@ class OrderAmendmentProductApprovalCheckoutPreConditionPluginTest extends Unit
         $this->assertCount(1, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsSuccessResponseForNotApprovedProductFromOriginalOrder(): void
     {
         // Arrange

@@ -98,9 +98,6 @@ class OrderAmendmentProductApprovalPreReloadItemsPluginTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPreReloadItemsShouldNotFilterApprovedProducts(): void
     {
         // Arrange
@@ -135,9 +132,6 @@ class OrderAmendmentProductApprovalPreReloadItemsPluginTest extends Unit
         $this->assertCount(2, $quoteTransfer->getItems());
     }
 
-    /**
-     * @return void
-     */
     public function testPreReloadItemsShouldNotFilterNotFoundItems(): void
     {
         // Arrange

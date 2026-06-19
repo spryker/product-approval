@@ -15,6 +15,19 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
  */
 class ProductApprovalConfig extends AbstractBundleConfig
 {
+    protected const string CHECKOUT_ERROR_TYPE = 'ProductApprovalUnavailable';
+
+    /**
+     * Specification:
+     * - Returns the error type identifier used in CheckoutErrorTransfer for errors produced by this module.
+     *
+     * @api
+     */
+    public function getCheckoutErrorType(): string
+    {
+        return static::CHECKOUT_ERROR_TYPE;
+    }
+
     /**
      * Specification:
      * - Returns default approval status for products.

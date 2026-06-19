@@ -43,6 +43,7 @@
     <transfer name="CheckoutError">
         <property name="message" type="string"/>
         <property name="parameters" type="array" singular="parameters"/>
+        <property name="errorType" type="string"/>
     </transfer>
 
     <transfer name="CheckoutResponse">
@@ -63,6 +64,7 @@
         <property name="idProductAbstract" type="int"/>
         <property name="sku" type="string"/>
         <property name="abstractSku" type="string"/>
+        <property name="groupKey" type="string"/>
     </transfer>
 
     <transfer name="ShoppingListPreAddItemCheckResponse">
@@ -81,9 +83,11 @@
     </transfer>
 
     <transfer name="ProductAbstractReadinessRequest" strict="true">
+        <property name="productAbstract" type="ProductAbstract"/>
     </transfer>
 
     <transfer name="ProductReadiness" strict="true">
+        <property name="title" type="string"/>
     </transfer>
 
 </transfers>

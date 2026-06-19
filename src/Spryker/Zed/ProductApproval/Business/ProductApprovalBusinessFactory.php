@@ -88,7 +88,7 @@ class ProductApprovalBusinessFactory extends AbstractBusinessFactory
 
     public function createProductApprovalCheckoutValidator(): ProductApprovalCheckoutValidatorInterface
     {
-        return new ProductApprovalCheckoutValidator($this->createProductReader());
+        return new ProductApprovalCheckoutValidator($this->createProductReader(), $this->getConfig());
     }
 
     public function createProductReader(): ProductReaderInterface

@@ -11,8 +11,9 @@ use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Shared\ProductApproval\ProductApprovalConfig;
+use Spryker\Shared\ProductApproval\ProductApprovalConfig as SharedProductApprovalConfig;
 use Spryker\Zed\ProductApproval\Business\Reader\ProductReaderInterface;
+use Spryker\Zed\ProductApproval\ProductApprovalConfig;
 
 class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidatorInterface
 {
@@ -31,7 +32,7 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
      */
     protected $productReader;
 
-    public function __construct(ProductReaderInterface $productReader)
+    public function __construct(ProductReaderInterface $productReader, protected ProductApprovalConfig $productApprovalConfig)
     {
         $this->productReader = $productReader;
     }
@@ -65,7 +66,9 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
 
             $checkoutErrorTransfer = (new CheckoutErrorTransfer())
                 ->setMessage(static::GLOSSARY_KEY_PRODUCT_NOT_APPROVED)
-                ->setParameters([static::GLOSSARY_PARAM_SKU => $itemTransfer->getSku()]);
+                ->setParameters([static::GLOSSARY_PARAM_SKU => $itemTransfer->getSku()])
+                ->setErrorType($this->productApprovalConfig->getCheckoutErrorType())
+                ->setGroupKey($itemTransfer->getGroupKey());
 
             $checkoutResponseTransfer->addError($checkoutErrorTransfer);
             $checkoutResponseTransfer->setIsSuccess(false);
@@ -91,7 +94,7 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
         }
 
         $productAbstractTransfer = $productAbstractTransfersIndexedByIdProductAbstract[$itemTransfer->getIdProductAbstract()];
-        if ($productAbstractTransfer->getApprovalStatus() === ProductApprovalConfig::STATUS_APPROVED) {
+        if ($productAbstractTransfer->getApprovalStatus() === SharedProductApprovalConfig::STATUS_APPROVED) {
             return true;
         }
 

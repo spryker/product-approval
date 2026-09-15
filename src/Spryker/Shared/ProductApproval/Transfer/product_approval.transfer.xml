@@ -53,6 +53,7 @@
 
     <transfer name="Quote">
         <property name="items" type="Item[]" singular="item"/>
+        <property name="bundleItems" type="Item[]" singular="bundleItem"/>
         <property name="originalSalesOrderItems" type="OriginalSalesOrderItem[]" singular="originalSalesOrderItem" strict="true"/>
     </transfer>
 

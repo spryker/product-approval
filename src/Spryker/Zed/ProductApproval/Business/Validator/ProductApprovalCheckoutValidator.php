@@ -59,7 +59,7 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
             return true;
         }
 
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
+        foreach ($this->getItemTransfersToValidate($quoteTransfer) as $itemTransfer) {
             if ($this->isProductAbstractApproved($itemTransfer, $productAbstractTransfersIndexedByIdProductAbstract) || in_array($itemTransfer->getSku(), $skusToSkip)) {
                     continue;
             }
@@ -111,7 +111,7 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
     ): array {
         $productAbstractSkus = [];
 
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
+        foreach ($this->getItemTransfersToValidate($quoteTransfer) as $itemTransfer) {
             if (!$itemTransfer->getAbstractSku()) {
                 continue;
             }
@@ -124,5 +124,27 @@ class ProductApprovalCheckoutValidator implements ProductApprovalCheckoutValidat
         }
 
         return $this->productReader->getProductAbstractTransfersIndexedByIdProductAbstract($productAbstractSkus);
+    }
+
+    /**
+     * @return array<\Generated\Shared\Transfer\ItemTransfer>
+     */
+    protected function getItemTransfersToValidate(QuoteTransfer $quoteTransfer): array
+    {
+        return [...$quoteTransfer->getItems(), ...$this->getUniqueBundleItemTransfers($quoteTransfer)];
+    }
+
+    /**
+     * @return list<\Generated\Shared\Transfer\ItemTransfer>
+     */
+    protected function getUniqueBundleItemTransfers(QuoteTransfer $quoteTransfer): array
+    {
+        $uniqueBundleItemTransfers = [];
+
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
+            $uniqueBundleItemTransfers[$bundleItemTransfer->getGroupKey() ?: $bundleItemTransfer->getSkuOrFail()] = $bundleItemTransfer;
+        }
+
+        return array_values($uniqueBundleItemTransfers);
     }
 }

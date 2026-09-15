@@ -22,6 +22,8 @@ class OrderAmendmentProductApprovalCheckoutPreConditionPlugin extends AbstractPl
     /**
      * {@inheritDoc}
      * - Requires `QuoteTransfer.originalSalesOrderItems.sku` to be set.
+     * - Validates the items from `QuoteTransfer.items` and the product bundles from `QuoteTransfer.bundleItems`.
+     * - Deduplicates `QuoteTransfer.bundleItems` by `QuoteTransfer.bundleItem.groupKey`, so a bundle added several times is validated once.
      * - Returns `false` response if at least one quote item transfer has items with not approved product.
      * - Sets error messages to checkout response, if a quote contains not approved product items.
      * - Skips validation for items that are part of the original order.
